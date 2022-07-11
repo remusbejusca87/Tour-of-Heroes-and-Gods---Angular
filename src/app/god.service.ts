@@ -9,52 +9,56 @@ export class GodService {
   constructor() { }
 
   getGods(): God[]  {
+    const emptyArray: God[] = [];
+    
+    const storageGodsList = localStorage.getItem("gods");
+    const arrayGodsList = JSON.parse(storageGodsList as string);
 
-
-     var a = localStorage.getItem("gods") as string;
-     var b = JSON.parse(a);
-     return b;
+    if (storageGodsList===null) 
+    { localStorage.setItem("gods", JSON.stringify(emptyArray));
+      return emptyArray;
+    } 
+    return arrayGodsList;
   }
 
   getGod(id: number): God {
-    var a = localStorage.getItem("gods") as string;
-    var b = JSON.parse(a);
-    const god = b.find((g: God) => g.id === id)
+    const storageGodsList = localStorage.getItem("gods") as string;
+    const arrayGodsList = JSON.parse(storageGodsList);
+    const god = arrayGodsList.find((g: God) => g.id === id)
     return god;
   }
 
   updateGod(god: God): void {
-    var a = localStorage.getItem("gods") as string;
-    var b = JSON.parse(a);
-    const godIndex = b.findIndex((g: God) => g.id == god.id)
+    const storageGodsList = localStorage.getItem("gods") as string;
+    const arrayGodsList = JSON.parse(storageGodsList);
+    const godIndex = arrayGodsList.findIndex((g: God) => g.id == god.id)
     if(godIndex !=-1) {
-      b[godIndex].name = god.name;
+      arrayGodsList[godIndex].name = god.name;
     }
-    localStorage.setItem("gods", JSON.stringify(b));
+    localStorage.setItem("gods", JSON.stringify(arrayGodsList));
   }
 
  addGod(god: God): void {
-    var a = localStorage.getItem("gods") as string;
+    const storageGodsList = localStorage.getItem("gods") as string;
     var newArray: God[] = [];
-    var b = JSON.parse(a);
-    newArray = [].concat(b);
+    const arrayGodsList = JSON.parse(storageGodsList);
+    newArray = [].concat(arrayGodsList);
 
     newArray.push({id: this.genId(newArray), name: god.name});
     localStorage.setItem("gods", JSON.stringify(newArray));
   }
 
   deleteGod(id: number): void {
-    var a = localStorage.getItem("gods") as string;
+    const storageGodsList = localStorage.getItem("gods") as string;
     var newArray: God[] = [];
-    var b = JSON.parse(a);
+    const arrayGodsList = JSON.parse(storageGodsList);
 
-    newArray = b.filter((g: God) => g.id!==id);
+    newArray = arrayGodsList.filter((g: God) => g.id!==id);
     localStorage.setItem("gods", JSON.stringify(newArray));
   }
 
-
   genId(gods: God[]): number {
-    return gods.length > 0 ? Math.max(...gods.map(god=>god.id)) + 1 : 11;
+    return gods.length > 0 ? Math.max(...gods.map(god=>god.id)) + 1 : 1;
   }
 
 }
