@@ -1,0 +1,21 @@
+<div>
+    <ul>
+        <li *ngFor="let hero of heroes">
+            <button type="button" type="button" [class.selected]="hero===selectedHero" (click)="onSelect(hero)"  >
+                id of hero: {{hero.id}}, name: {{hero.name}} and address: {{hero.address}}
+            </button>
+        </li>
+    </ul>
+
+</div>
+
+<div *ngIf="selectedHero">
+    id of selected hero: {{selectedHero.id}}
+    <div>
+        <label for="hero-name">hero name:</label>
+        <input [(ngModel)]="selectedHero.name">
+    </div>
+
+    <label for="hero-address"> hero address: </label>
+    <input [(ngModel)]="selectedHero.address">
+</div>
