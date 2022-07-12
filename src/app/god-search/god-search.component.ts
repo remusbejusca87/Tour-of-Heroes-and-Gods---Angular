@@ -21,9 +21,9 @@ export class GodSearchComponent implements OnInit {
   }
 
   searchGods(): void {
-    console.log(this.searchText);
+    // console.log(this.searchText);
     var foundGods = this.godService.filterGods(this.searchText);
-    console.log(foundGods);
+    // console.log(foundGods);
     this.gods = foundGods;
   }
 

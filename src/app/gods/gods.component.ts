@@ -18,7 +18,6 @@ export class GodsComponent implements OnInit {
   }
 
   getGods(): void {
-    
     this.gods = this.godService.getGods();
   }
 

@@ -65,7 +65,7 @@ export class GodService {
     }
     const storageList = this.getGods();
     // console.log(this.getGods());
-    const newArray = storageList.filter((g:God) => g.name.toLowerCase().includes(term));
+    const newArray = storageList.filter((g:God) => g.name.toLowerCase().includes(term.trim()));
     return newArray;
     
   }

@@ -18,10 +18,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHeroes();
+    this.getGods();
   }
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes=>this.heroes = heroes.slice(1,5));
+  }
+
+  getGods(): void {
+    this.gods = this.godService.getGods().slice(0,4);
   }
 
 

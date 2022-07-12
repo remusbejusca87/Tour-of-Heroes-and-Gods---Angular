@@ -3,6 +3,11 @@
     <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}"> {{hero.name}} </a>
 </div>
 
-<app-hero-search></app-hero-search>
+<app-hero-search></app-hero-search> <br> <br>
+
+<h2>Only top gods here:</h2>
+<div class="heroes-menu">
+    <a *ngFor="let god of gods" routerLink="/dashboard/god/detail/{{god.id}}"> {{god.name}} </a>
+</div>
 
 <app-god-search></app-god-search>
