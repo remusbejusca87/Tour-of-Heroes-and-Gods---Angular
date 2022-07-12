@@ -17,7 +17,6 @@ export class GodSearchComponent implements OnInit {
   constructor(private godService: GodService) { }
 
   ngOnInit(): void {
-    // this.gods = this.godService.filterGods(this.searchText);
   }
 
   searchGods(): void {

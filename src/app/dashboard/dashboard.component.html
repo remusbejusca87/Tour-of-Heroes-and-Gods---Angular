@@ -7,7 +7,7 @@
 
 <h2>Only top gods here:</h2>
 <div class="heroes-menu">
-    <a *ngFor="let god of gods" routerLink="/dashboard/god/detail/{{god.id}}"> {{god.name}} </a>
+    <a *ngFor="let god of gods" routerLink="/god/detail/{{god.id}}"> {{god.name}} </a>
 </div>
 
 <app-god-search></app-god-search>
