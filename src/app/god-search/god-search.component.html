@@ -1,0 +1,10 @@
+<div id="search-component">
+    <label for="search-box"> God search: </label>
+    <input type="text" [(ngModel)]="searchText" (input)="searchGods()">
+
+    <ul class="search-result">
+        <li *ngFor="let god of gods">
+            <a routerLink="/dashboard/god/detail/{{god.id}}"> {{god.name}} </a>
+        </li>
+    </ul>
+</div>

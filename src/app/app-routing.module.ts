@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent},
   { path: 'gods', component:GodsComponent},
-  { path: 'god/detail/:id', component:GodDetailComponent }
+  { path: 'god/detail/:id', component:GodDetailComponent },
+  { path: 'dashboard/god/detail/:id', component: GodDetailComponent }
 ];
 
 

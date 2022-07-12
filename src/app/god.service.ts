@@ -15,11 +15,13 @@ export class GodService {
     const arrayGodsList = JSON.parse(storageGodsList as string);
 
     if (storageGodsList===null) 
-    { localStorage.setItem("gods", JSON.stringify(emptyArray));
+    { 
+      localStorage.setItem("gods", JSON.stringify(emptyArray));
       return emptyArray;
     } 
     return arrayGodsList;
   }
+
 
   getGod(id: number): God {
     const storageGodsList = localStorage.getItem("gods") as string;
@@ -57,9 +59,22 @@ export class GodService {
     localStorage.setItem("gods", JSON.stringify(newArray));
   }
 
+  filterGods(term: string) {
+    if(!term.trim) {
+      return [];
+    }
+    const storageList = this.getGods();
+    // console.log(this.getGods());
+    const newArray = storageList.filter((g:God) => g.name.toLowerCase().includes(term));
+    return newArray;
+    
+  }
+
   genId(gods: God[]): number {
     return gods.length > 0 ? Math.max(...gods.map(god=>god.id)) + 1 : 1;
   }
+
+
 
 }
 

@@ -13,10 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { HeroesTestComponent } from './heroes-test/heroes-test.component';
-import { HeroTestDetailComponent } from './hero-test-detail/hero-test-detail.component';
 import { GodsComponent } from './gods/gods.component';
 import { GodDetailComponent } from './god-detail/god-detail.component';
+import { GodSearchComponent } from './god-search/god-search.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -27,10 +28,10 @@ import { GodDetailComponent } from './god-detail/god-detail.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroesTestComponent,
-    HeroTestDetailComponent,
     GodsComponent,
-    GodDetailComponent
+    GodDetailComponent,
+    GodSearchComponent, 
+    
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,7 @@ import { GodDetailComponent } from './god-detail/god-detail.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
-      )
+      ),
   ],
   providers: [],
   bootstrap: [AppComponent]

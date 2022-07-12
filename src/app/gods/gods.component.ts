@@ -34,6 +34,7 @@ export class GodsComponent implements OnInit {
     this.getGods();
   }
 
+
 }
 
 

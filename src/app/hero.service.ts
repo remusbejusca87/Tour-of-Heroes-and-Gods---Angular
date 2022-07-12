@@ -78,9 +78,6 @@ export class HeroService {
 
   /* GET heroes whose name contains search term */
   searchHeroes(term: string) {
-    if(!term.trim) {
-      return of([]);
-    }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
       tap(x=>x.length ?
           this.log(`found heroes matching "${term}"`) : 
